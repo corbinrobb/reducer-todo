@@ -7,10 +7,12 @@ const TodoForm = ({ dispatch }) => {
     e.preventDefault();
     if(!input) return;
     dispatch({
-      type: 'ADD_TODO', payload: {
+      type: 'ADD_TODO', 
+      payload: {
         item: input,
         completed: false,
-        id: Date.now()
+        id: Date.now(),
+        completedDate: null
       }
     })
     setInput('');

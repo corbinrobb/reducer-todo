@@ -1,13 +1,14 @@
 import React from 'react';
+import moment from 'moment';
 
 const Todo = ({ data, dispatch }) => {
   return (
-    <div 
-      style={{ color: (data.completed) ? 'red' : 'black' }} 
-      onClick={() => dispatch({ type: 'TOGGLE_COMPLETED', payload: data.id })}
+    <li 
+      style={{ color: (data.completed) ? 'red' : 'black', cursor: 'pointer' }} 
+      onClick={() => dispatch({ type: 'TOGGLE_COMPLETED', payload: { id: data.id, completedDate: moment().format("MMM Do YY") } })}
     >
-      {data.item}
-    </div>
+      {data.item} {data.completedDate && `| Completed on ${data.completedDate}`}
+    </li>
   );
 }
 

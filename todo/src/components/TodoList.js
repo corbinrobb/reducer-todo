@@ -8,9 +8,11 @@ const TodoList = () => {
 
   return (
     <>
+    <ul>
       {state.map(todo => {
         return <Todo key={todo.id} dispatch={dispatch} data={todo} />
       })}
+    </ul>
       <TodoForm dispatch={dispatch} />
     </>
   );
